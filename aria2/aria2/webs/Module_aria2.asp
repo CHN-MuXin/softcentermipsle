@@ -1010,8 +1010,6 @@
 				});
 			}
 
-
-			====start
 			function get_tree_items(treeitems) {
 				document.aidiskForm.test_flag.value = 0;
 			 this.isLoading = 1;
