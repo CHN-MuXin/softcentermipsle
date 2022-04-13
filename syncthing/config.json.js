@@ -1,8 +1,8 @@
 {
-"version":"0.5.1",
-"md5":"763d98d711b8eae266e947c0583d759e",
+"version":"0.5.2",
+"md5":"4eedb03a155f28b67e423f2b6b406c52",
 "home_url":"Module_syncthing.asp",
 "title":"syncthing",
 "description":"syncthing储存同步",
-"build_date":"2021-05-12_09:55:39"
+"build_date":"2022-04-13_08:52:19"
 }
