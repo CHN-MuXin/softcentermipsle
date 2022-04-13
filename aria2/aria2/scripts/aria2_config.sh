@@ -45,11 +45,11 @@ perpare(){
 	cat > /tmp/aria2.conf <<-EOF
 	`dbus list aria2 | grep -vw aria2_enable | grep -vw aria2_version | grep -vw aria2_title | grep -vw aria2_cpulimit_enable | grep -vw aria2_rpc_secret | grep -vw aria2_ddnsto | grep -vw aria2_ddnsto_token | grep -vw aria2_cpulimit_value | grep -vw aria2_custom | grep -vw aria2_bt_tracker | grep -vw aria2_dir| sed 's/aria2_//g' | sed 's/_/-/g'`
 	`dbus list aria2|grep -w aria2_dir|sed 's/aria2_//g'`
-	`dbus get aria2_custom|base64_decode`
+	`dbus get aria2_custom|base64 -d`
 	EOF
 	if [ -n "`dbus get aria2_bt_tracker`" ];then
 		cat >> /tmp/aria2.conf <<-EOF
-			bt-tracker=`dbus get aria2_bt_tracker|base64_decode|sed '/^\s*$/d'|sed ":a;N;s/\n/,/g;ta"`
+			bt-tracker=`dbus get aria2_bt_tracker|base64 -d|sed '/^\s*$/d'|sed ":a;N;s/\n/,/g;ta"`
 		EOF
 	fi
 	if [ "`dbus get aria2_ddnsto`" == "1" ] && [ -f "/jffs/softcenter/bin/ddnsto" ]; then
